@@ -20,12 +20,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
-    { "mxsdev/nvim-dap-vscode-js", module = { "dap-vscode-js" } },
-    {
-      "microsoft/vscode-js-debug",
-      lazy = true,
-      build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
-    },
+    "mxsdev/nvim-dap-vscode-js",
   },
   config = function()
     local dap = require 'dap'
@@ -45,6 +40,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'js-debug-adapter',
       },
     }
 
@@ -88,22 +84,20 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup()
-
-
-    -- MANUAL INSTALLED DAP CONFIGURATION
-    -- javascript/typescript
-    --https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#vscode-js-debug
-    local JS_DEBUGGER_PATH = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug'
-
-    require("dap-vscode-js").setup {
-      node_path = "node",
-      debugger_path = JS_DEBUGGER_PATH,
-      -- debugger_cmd = { "js-debug-adapter" },
-      adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+    -- typescript/javascript language config
+    require('dap-vscode-js').setup({
+      node_path = 'node',
+      debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
+      debugger_cmd = { 'js-debug-adapter' },
+      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+    })
+    local exts = {
+      'javascript',
+      'typescript',
     }
 
-    for _, language in ipairs { "typescript", "javascript" } do
-      dap.configurations[language] = {
+    for _, ext in ipairs(exts) do
+      dap.configurations[ext] = {
         {
           type = "pwa-node",
           request = "launch",
@@ -117,8 +111,7 @@ return {
           name = "Attach",
           processId = require("dap.utils").pick_process,
           cwd = "${workspaceFolder}",
-        },
-      }
+        }, }
     end
   end,
 }
