@@ -475,11 +475,12 @@ mason_lspconfig.setup_handlers {
 }
 
 --LSP config out of mason package manager
-require('lspconfig')["dartls"].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = { dart = {} }
-}
+-- NOTE: dart is commented becasuse i am using flutter-tools, if i like the package the comment below will be removed
+-- require('lspconfig')["dartls"].setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   settings = { dart = {} }
+-- }
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
