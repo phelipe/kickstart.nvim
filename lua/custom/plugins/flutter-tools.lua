@@ -15,6 +15,7 @@ return {
             vim.keymap.set('n', keys, func, { desc = desc })
         end
 
+        require("leap").add_default_mappings()
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
