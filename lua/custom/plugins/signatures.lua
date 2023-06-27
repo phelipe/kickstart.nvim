@@ -1,6 +1,7 @@
 -- Este plugin melhora a aparência das janelas de documentação e erros
 return {
     "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
     config = function()
         require("lsp_signature").setup({
             bind = true,

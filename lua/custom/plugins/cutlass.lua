@@ -1,5 +1,6 @@
 return {
     "gbprod/cutlass.nvim",
+    event = "VeryLazy",
     opts = {
         cut_key = nil,
         override_del = nil,
