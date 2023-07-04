@@ -2,7 +2,7 @@ return {
     "gbprod/cutlass.nvim",
     event = "VeryLazy",
     opts = {
-        cut_key = nil,
+        cut_key = 'x',
         override_del = nil,
         exclude = {},
         registers = {
