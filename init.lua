@@ -120,11 +120,13 @@ require('lazy').setup({
   {
     -- Theme inspired by Atom
     'luisiacc/gruvbox-baby',
+    branch = 'main',
     priority = 1000,
     config = function()
       vim.g.gruvbox_baby_function_style = "NONE"
       vim.g.gruvbox_baby_keyword_style = "italic"
-      vim.g.gruvbox_baby_telescope_theme = 1
+      vim.g.gruvbox_baby_telescope_theme = 0
+      vim.g.gruvbox_baby_transparent_mode = true
       vim.g.gruvbox_baby_background_color = "soft_flat"
       vim.cmd.colorscheme 'gruvbox-baby'
     end,
