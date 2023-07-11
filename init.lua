@@ -43,6 +43,8 @@ vim.g.maplocalleader = ' '
 
 -- enable relative line numbers
 vim.wo.relativenumber = true
+-- disable ~ in empty lines of buffer
+vim.opt.fillchars = { eob = " " }
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
