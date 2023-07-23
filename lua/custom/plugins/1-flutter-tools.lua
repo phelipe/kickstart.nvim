@@ -1,7 +1,8 @@
 return {
     'akinsho/flutter-tools.nvim',
     lazy = true,
-    event = "BufEnter *.dart",
+    -- event = "BufEnter *.dart",
+    event = "BufEnter",
     dependencies = {
         'nvim-lua/plenary.nvim',
         -- 'stevearc/dressing.nvim', -- optional for vim.ui.select
