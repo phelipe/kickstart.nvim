@@ -1,14 +1,19 @@
 return {
     'akinsho/flutter-tools.nvim',
-    lazy = true,
+    lazy = false,
     -- event = "BufEnter *.dart",
-    event = "BufEnter",
+    -- event = "BufEnter",
     dependencies = {
         'nvim-lua/plenary.nvim',
         -- 'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
     config = function()
-        require("flutter-tools").setup({})
+        require("flutter-tools").setup({
+            debugger = { -- integrate with nvim dap + install dart code debugger
+                enabled = true,
+                run_via_dap = true,
+            }
+        })
         local nmap = function(keys, func, desc)
             if desc then
                 desc = 'LSP: ' .. desc
@@ -32,13 +37,13 @@ return {
         nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
         nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-        -- Lesser used LSP functionality
-        nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-        nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-        nmap('<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, '[W]orkspace [L]ist Folders')
+        -- -- Lesser used LSP functionality
+        -- nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+        -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+        -- nmap('<leader>wl', function()
+        --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        -- end, '[W]orkspace [L]ist Folders')
         -- return true
     end
 }

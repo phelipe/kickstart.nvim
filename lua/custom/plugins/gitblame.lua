@@ -1,5 +1,6 @@
 vim.g.gitblame_enabled = 0
 return {
     "f-person/git-blame.nvim",
-    event = "VeryLazy",
+    event = { "BufEnter" },
+    -- event = "VeryLazy",
 }

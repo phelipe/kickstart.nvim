@@ -2,5 +2,6 @@
 -- outras palavras que sãi iguais a palavra onde o curos está atualmente
 return {
     "RRethy/vim-illuminate",
-    event = "VeryLazy",
+    event = { "BufEnter" },
+    -- event = "VeryLazy",
 }
