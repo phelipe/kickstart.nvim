@@ -256,10 +256,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- config fold by ident
-vim.o.foldmethod = "indent"
-vim.o.foldenable = false
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -536,6 +532,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
+require("custom/config/config")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
