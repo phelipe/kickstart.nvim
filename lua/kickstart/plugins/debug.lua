@@ -9,7 +9,7 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
-  event = { "BufReadPre", "BufNewFile" },
+  event = { 'BufReadPre', 'BufNewFile' },
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -21,7 +21,7 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
-    "mxsdev/nvim-dap-vscode-js",
+    'mxsdev/nvim-dap-vscode-js',
   },
   config = function()
     local dap = require 'dap'
@@ -72,7 +72,7 @@ return {
           step_back = 'b',
           run_last = '▶▶',
           terminate = '⏹',
-          disconnect = "⏏",
+          disconnect = '⏏',
         },
       },
     }
@@ -86,12 +86,12 @@ return {
     -- Install golang specific config
     require('dap-go').setup()
     -- typescript/javascript language config
-    require('dap-vscode-js').setup({
+    require('dap-vscode-js').setup {
       node_path = 'node',
-      debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
+      debugger_path = vim.fn.stdpath 'data' .. '/mason/packages/js-debug-adapter',
       debugger_cmd = { 'js-debug-adapter' },
       adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
-    })
+    }
     local exts = {
       'javascript',
       'typescript',
@@ -100,19 +100,20 @@ return {
     for _, ext in ipairs(exts) do
       dap.configurations[ext] = {
         {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
         },
         {
-          type = "pwa-node",
-          request = "attach",
-          name = "Attach",
-          processId = require("dap.utils").pick_process,
-          cwd = "${workspaceFolder}",
-        }, }
+          type = 'pwa-node',
+          request = 'attach',
+          name = 'Attach',
+          processId = require('dap.utils').pick_process,
+          cwd = '${workspaceFolder}',
+        },
+      }
     end
   end,
 }
