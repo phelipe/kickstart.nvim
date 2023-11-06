@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 -- enable relative line numbers
 vim.wo.relativenumber = true
 -- disable ~ in empty lines of buffer
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = ' ' }
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -41,11 +41,11 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',          opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
-    event = "BufEnter",
+    event = 'BufEnter',
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -64,11 +64,11 @@ require('lazy').setup({
     branch = 'main',
     priority = 1000,
     config = function()
-      vim.g.gruvbox_baby_function_style = "NONE"
-      vim.g.gruvbox_baby_keyword_style = "italic"
+      vim.g.gruvbox_baby_function_style = 'NONE'
+      vim.g.gruvbox_baby_keyword_style = 'italic'
       vim.g.gruvbox_baby_telescope_theme = 0
       vim.g.gruvbox_baby_transparent_mode = true
-      vim.g.gruvbox_baby_background_color = "soft_flat"
+      vim.g.gruvbox_baby_background_color = 'soft_flat'
       vim.cmd.colorscheme 'gruvbox-baby'
     end,
   },
@@ -85,12 +85,12 @@ require('lazy').setup({
         section_separators = { left = '', right = '' },
       },
       sections = {
-        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 }, },
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
-        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 }, }
+        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
       },
     },
   },
@@ -102,22 +102,22 @@ require('lazy').setup({
     -- See `:help indent_blankline.txt`
     main = 'ibl',
     config = function()
-      require("ibl").setup {
+      require('ibl').setup {
         indent = {
           highlight = {
-            "Whitespace",
+            'Whitespace',
           },
-          char = '┊'
-        }
-      };
-    end
+          char = '┊',
+        },
+      }
+    end,
   },
 
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
-    event = "BufEnter",
-    opts = {}
+    event = 'BufEnter',
+    opts = {},
   },
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -142,8 +142,8 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    event = { "BufEnter" },
-    build = ":TSUpdate",
+    event = { 'BufEnter' },
+    build = ':TSUpdate',
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -267,8 +267,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'dart', 'make',
-    "yaml" },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'dart', 'make', 'yaml' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -331,23 +330,18 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 -- Show popup with diagnostics after 250ms
 -- vim.o.updatetime = 250
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 vim.diagnostic.config {
-  float = { border = "rounded" },
+  float = { border = 'rounded' },
 }
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
-
-
-
-
-
 
 --LSP config out of mason package manager
 -- NOTE: dart is commented becasuse i am using flutter-tools, if i like the package the comment below will be removed
@@ -357,6 +351,6 @@ vim.diagnostic.config {
 --   settings = { dart = {} }
 -- }
 
-require "custom.config.config"
+require 'custom.config.config'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

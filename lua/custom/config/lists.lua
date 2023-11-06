@@ -8,6 +8,7 @@ return {
     -- clangd = {},
     gopls = {},
     vtsls = {}, -- linter para typescript e javascript mais rápido que o tsserver
+    marksman = {}, -- linter para mrkdown, facilita na escrita
     -- pyright = {},
     -- rust_analyzer = {},
     lua_ls = {
