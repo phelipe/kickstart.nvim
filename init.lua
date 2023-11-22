@@ -139,6 +139,9 @@ require('lazy').setup({
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- NOTE: add a commit hash here because issue https://github.com/nvim-treesitter/nvim-treesitter/issues/4945 is make dart slow
+    -- remove this commit when issue is solved
+    commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
@@ -267,7 +270,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'dart', 'make', 'yaml' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'dart', 'make', 'yaml', 'kdl' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
