@@ -6,6 +6,7 @@ return {
   config = function()
     -- if you wnat use it with telescope
     -- vim.keymap.set('n', '<leader>sm', ":Telescope harpoon marks<CR>", { desc = "Harpoon [S]how [M]arks" })
+    vim.keymap.set('n', '<leader>n', ":lua require('harpoon.mark').rm_file()<CR>", { desc = 'Harpoon remove [M]ark' })
     vim.keymap.set('n', '<leader>m', ":lua require('harpoon.mark').add_file()<CR>", { desc = 'Harpoon add [M]ark' })
     vim.keymap.set('n', '<leader>sm', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = 'Harpoon [S]how [M]arks' })
     vim.keymap.set('n', '<leader>j', ":lua require('harpoon.ui').nav_next()<CR>", { desc = 'Harpoon Next Mark' })
