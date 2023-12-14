@@ -11,3 +11,7 @@ atalhos configurados dentro do arquivo do bufferline:
 - nvim-tree (para a lista de arquivos laterais aparecer estio vscode)
 atalhos configurados dentro do arquivo do nvim-tree:
         Ctrl + b -> abre/esconde a barra lateral
+
+<!-- TODO: adicionar correção para este problema do lualine -->
+
+https://github.com/nvim-lualine/lualine.nvim/issues/699

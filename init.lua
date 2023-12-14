@@ -39,11 +39,11 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  { 'tpope/vim-fugitive', event = { 'BufReadPre', 'BufNewFile' } },
+  { 'tpope/vim-rhubarb', event = { 'BufReadPre', 'BufNewFile' } },
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  { 'tpope/vim-sleuth' },
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
@@ -81,6 +81,8 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    -- event = { 'BufEnter' },
+    event = { 'BufReadPost', 'BufNewFile' },
     -- See `:help lualine.txt`
     opts = {
       options = {
@@ -103,6 +105,7 @@ require('lazy').setup({
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     main = 'ibl',
@@ -121,7 +124,8 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
-    event = 'BufEnter',
+    -- event = 'BufEnter',
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {},
   },
 
@@ -150,7 +154,8 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    event = { 'BufEnter' },
+    -- event = { 'BufEnter' },
+    event = { 'BufReadPre', 'BufNewFile' },
     build = ':TSUpdate',
   },
 

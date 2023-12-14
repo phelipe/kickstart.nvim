@@ -1,7 +1,9 @@
 -- package for use buffer as "tabs"
 return {
   'akinsho/bufferline.nvim',
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
+  -- event = { 'BufEnter' },
+  event = { 'BufReadPre', 'BufNewFile' },
   version = '*',
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()

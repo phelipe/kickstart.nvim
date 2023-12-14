@@ -1,7 +1,8 @@
 -- plugin for open browser links with gx
 return {
   'chrishrb/gx.nvim',
-  event = { 'BufEnter' },
+  -- event = { 'BufEnter' },
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = true, -- default settings
 }

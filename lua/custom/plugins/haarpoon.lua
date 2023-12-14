@@ -6,6 +6,9 @@ return {
   dependencies = 'nvim-lua/plenary.nvim',
   config = function()
     local harpoon = require 'harpoon'
+    harpoon:setup {
+      settings = { save_on_toggle = false },
+    }
     vim.keymap.set('n', '<leader>n', function()
       harpoon:list():remove()
     end, { desc = 'Harpoon remove [M]ark' })
