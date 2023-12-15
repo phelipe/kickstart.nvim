@@ -26,14 +26,14 @@ return {
             ['<C-d>'] = false,
           },
         },
+        file_ignore_patterns = {
+          '.git/',
+        },
       },
       pickers = {
         find_files = {
           hidden = true,
         },
-      },
-      file_ignore_patterns = {
-        '.git/',
       },
     }
     pcall(require('telescope').load_extension, 'fzf')
