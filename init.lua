@@ -47,21 +47,6 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
-  {
-    -- Adds git releated signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    event = 'BufEnter',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
 
   {
     -- Theme inspired by Atom
@@ -83,23 +68,52 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     -- event = { 'BufEnter' },
     event = { 'BufReadPost', 'BufNewFile' },
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'gruvbox_dark',
-        component_separators = '|',
-        section_separators = { left = '', right = '' },
-      },
-      sections = {
-        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
+    dependencies = {
+      {
+        -- Adds git releated signs to the gutter, as well as utilities for managing changes
+        'lewis6991/gitsigns.nvim',
+        opts = {
+          -- See `:help gitsigns.txt`
+          signs = {
+            add = { text = '+' },
+            change = { text = '~' },
+            delete = { text = '_' },
+            topdelete = { text = '‾' },
+            changedelete = { text = '~' },
+          },
+        },
       },
     },
+    -- See `:help lualine.txt`
+    config = function()
+      local function diff_source()
+        local gitsigns = vim.b.gitsigns_status_dict
+        if gitsigns then
+          return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed,
+          }
+        end
+      end
+
+      require('lualine').setup {
+        options = {
+          icons_enabled = true,
+          theme = 'gruvbox_dark',
+          component_separators = '|',
+          section_separators = { left = '', right = '' },
+        },
+        sections = {
+          lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+          lualine_b = { 'branch', { 'diff', source = diff_source }, 'diagnostics' },
+          lualine_c = { { 'filename', path = 1 } },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
+        },
+      }
+    end,
   },
 
   {
