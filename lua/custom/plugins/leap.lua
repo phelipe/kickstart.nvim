@@ -1,10 +1,10 @@
 -- plugin for fast movimentation in nvim
 return {
   'ggandor/leap.nvim',
-  -- event = { 'BufEnter' },
+  event = { 'BufEnter' },
   dependencies = 'tpope/vim-repeat',
   config = function()
-    require('leap').setup {}
-    require('leap').add_default_mappings()
+    -- require('leap').setup {}
+    require('leap').create_default_mappings(true)
   end,
 }
