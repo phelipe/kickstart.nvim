@@ -36,6 +36,7 @@ return {
         },
       },
     }
+    require('telescope').load_extension 'fzf'
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'cmdline')
     pcall(require('telescope').load_extension 'live_grep_args')
