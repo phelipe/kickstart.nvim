@@ -164,7 +164,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     -- NOTE: add a commit hash here because issue https://github.com/nvim-treesitter/nvim-treesitter/issues/4945 is make dart slow
     -- remove this commit when issue is solved
-    commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
+    -- commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
