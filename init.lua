@@ -189,7 +189,9 @@ require('lazy').setup({
   --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
   { import = 'custom.plugins' },
   { import = 'custom.plugins.lsp' },
-}, {})
+}, {
+  ui = { border = 'rounded' },
+})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
