@@ -6,6 +6,11 @@ vim.o.foldenable = false
 local vim = vim
 local api = vim.api
 local M = {}
+
+---- add net filetype
+vim.filetype.add { extension = { typ = 'typst' } } -- add typst filetype
+vim.filetype.add { extension = { hurl = 'hurl' } } -- add hurl filetype
+
 -- function to create a list of commands and convert them to autocommands
 -------- This function is taken from https://github.com/norcalli/nvim_utils
 function M.nvim_create_augroups(definitions)

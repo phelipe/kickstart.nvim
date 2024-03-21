@@ -6,7 +6,15 @@
 return {
   servers = {
     -- clangd = {},
-    gopls = {},
+    gopls = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
+      },
+    },
     vtsls = {}, -- lsp para typescript e javascript mais rápido que o tsserver
     marksman = {}, -- linter para mrkdown, facilita na escrita
     -- pyright = {},
