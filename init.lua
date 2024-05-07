@@ -43,6 +43,9 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
+-- Keep filename on top
+vim.opt.winbar = '%f'
+
 -- Decrease update time
 vim.opt.updatetime = 250
 
