@@ -607,6 +607,7 @@ require('lazy').setup({
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
         window = {
+          documentation = cmp.config.window.bordered(),
           completion = cmp.config.window.bordered(),
         },
 
