@@ -19,7 +19,7 @@ return {
     },
     elixirls = {}, -- lsp para elixir
     vtsls = {}, -- lsp para typescript e javascript mais rápido que o tsserver
-    marksman = {}, -- linter para mrkdown, facilita na escrita
+    -- marksman = {}, -- linter para mrkdown, facilita na escrita
     -- pyright = {},
     -- rust_analyzer = {},
     lua_ls = {
