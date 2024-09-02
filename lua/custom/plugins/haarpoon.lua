@@ -13,7 +13,7 @@ return {
       harpoon:list():remove()
     end, { desc = 'Harpoon remove [M]ark' })
     vim.keymap.set('n', '<leader>m', function()
-      harpoon:list():append()
+      harpoon:list():add()
     end, { desc = 'Harpoon add [M]ark' })
     vim.keymap.set('n', '<leader>sm', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
