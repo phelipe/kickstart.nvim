@@ -24,6 +24,7 @@ return {
     vim.keymap.set('n', '<leader>fat', '<cmd>GoTestAll<cr>', { desc = 'GO -[A]dd [A]ll [T]est' })
     vim.keymap.set('n', '<leader>ae', '<cmd>GoIfErr<cr>', { desc = 'GO -[A]dd if [E]rror' })
     vim.keymap.set('n', '<leader>ac', '<cmd>GoCmt<cr>', { desc = 'GO -[A]dd [C]omment' })
+    -- NOTE: add tags with omitempty -> "GoTagAdd json --add-options json=omitempty"
   end,
   builf = function()
     vim.cmd [[silent! GoInstallDeps]]
