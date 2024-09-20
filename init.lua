@@ -704,12 +704,14 @@ require('lazy').setup({
     'luisiacc/gruvbox-baby',
     branch = 'main',
     priority = 1000,
-    config = function()
+    init = function()
       vim.g.gruvbox_baby_function_style = 'NONE'
       vim.g.gruvbox_baby_keyword_style = 'italic'
       vim.g.gruvbox_baby_telescope_theme = 0
       vim.g.gruvbox_baby_transparent_mode = true
       vim.g.gruvbox_baby_background_color = 'soft_flat'
+    end,
+    config = function()
       vim.cmd.colorscheme 'gruvbox-baby'
       vim.cmd.hi 'Comment gui=none'
     end,
