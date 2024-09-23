@@ -4,7 +4,7 @@ return {
   event = 'VeryLazy',
   opts = {},
   config = function()
-    vim.keymap.set('n', '-', require('oil').open, { desc = 'Open parent directory' })
+    vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
     require('oil').setup {
       keymaps = {
         ['g?'] = 'actions.show_help',
