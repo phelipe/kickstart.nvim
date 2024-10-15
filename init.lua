@@ -673,10 +673,11 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'nvim_lsp' },
           { name = 'luasnip' },
+          { name = 'nvim_lsp' },
           { name = 'buffer' }, -- text within current buffer
           { name = 'path' },
+          { name = 'codeium' }, -- adicionado para o uso do plugin codeium, se não utiliza mais esse plugin, remover daqui
         },
       }
     end,
