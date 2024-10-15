@@ -677,7 +677,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'buffer' }, -- text within current buffer
           { name = 'path' },
-          { name = 'codeium' }, -- adicionado para o uso do plugin codeium, se não utiliza mais esse plugin, remover daqui
+          { name = 'codeium' }, -- NOTE: adicionado para o uso do plugin codeium, se não utiliza mais esse plugin, remover daqui
         },
       }
     end,
